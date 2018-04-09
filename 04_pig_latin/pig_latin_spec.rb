@@ -47,7 +47,7 @@ describe "#translate" do
 
   it "counts 'sch' as a single phoneme" do
     s = translate("school")
-    expect(s).to eq("oolschay")
+    expect(s).to eq("oolschay")   
   end
 
   it "counts 'qu' as a single phoneme" do
@@ -68,5 +68,15 @@ describe "#translate" do
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
+  it "translates with capitalized words" do
+    s = translate("the Quick Brown fox")
+    expect(s).to eq("ethay Ickquay Ownbray oxfay")
+  end
+
+  # Fonctionne si la ponctuation est délimitée du reste de la phrase 
+  it "translates with punctuation" do
+    s = translate("the Quick Brown fox ? It is fantastic !")
+    expect(s).to eq("ethay Ickquay Ownbray oxfay ? Itay isay antasticfay !")
+  end
 
 end
